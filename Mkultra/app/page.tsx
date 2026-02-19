@@ -1,7 +1,7 @@
 'use client';
 import Navbar from './components/Navbar';
 import HomeHero from './components/HomeHero';
-import TheorySection from './components/TheroySection';
+import TheorySection from './components/TheorySection';
 import { theories } from './data/theories';
 
 export default function Home() {
