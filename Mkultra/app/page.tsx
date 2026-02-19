@@ -1,49 +1,32 @@
 'use client';
-
-// THESE IMPORTS ARE ESSENTIAL - DO NOT REMOVE
 import Navbar from './components/Navbar';
 import HomeHero from './components/HomeHero';
-import TimelineHeader from './components/TimelineHeader';
-import TimelineSection from './TimelineSection';
+import TheorySection from './components/TheroySection';
+import { theories } from './data/theories';
 
 export default function Home() {
-  const mkUltraHistory = [
-    { 
-      id: "r1", 
-      era: "1953", 
-      title: "Project MKUltra", 
-      desc: "The CIA's clandestine mind control research program, officially sanctioned in 1953." 
-    },
-    { 
-      id: "r2", 
-      era: "1973", 
-      title: "Records Destroyed", 
-      desc: "CIA Director Richard Helms orders the destruction of all MKUltra files, leaving only fragmented truths." 
-    }
-  ];
-
   return (
     <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-black overflow-x-hidden">
       <Navbar />
       
+      {/* 1. HERO SECTION */}
       <div id="home" className="snap-start w-full h-screen">
         <HomeHero />
       </div>
 
-      <div id="ritual" className="w-full">
-        {/* Updated to pass props correctly */}
-        <TimelineHeader 
-          title="Omitted History" 
-          subtitle="Patterns of systemic psychological manipulation." 
-          pattern="Classified Exchange" 
-        />
-        
-        {mkUltraHistory.map((item) => (
-          <div key={item.id} className="snap-start h-screen w-full">
-            <TimelineSection item={item} />
+      {/* 2. THEORIES - Each one is a full page */}
+      <div id="theories">
+        {theories.map((theory) => (
+          <div key={theory.id} className="snap-start h-screen w-full">
+            <TheorySection theory={theory} />
           </div>
         ))}
       </div>
+      
+      {/* 3. FOOTER / END OF SESSION */}
+      <footer className="snap-start h-[20vh] flex items-center justify-center bg-stone-950">
+        <p className="text-[10px] text-stone-700 uppercase tracking-[1em]">End of Archive</p>
+      </footer>
     </main>
   );
 }
