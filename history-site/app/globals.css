@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #fafafa;
+  --purple-accent: #7c3aed;
+  --purple-glow: rgba(124, 58, 237, 0.3);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fixes the "Weird Font" - Forces Serif for Headers */
+h1, h2 {
+  letter-spacing: -0.05em; /* This replaces tracking-tighter */
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.text-purple-glow {
+  color: var(--purple-accent);
+  text-shadow: 0 0 15px var(--purple-glow);
+}
+
+/* This fixes the "White Squares" by making them dark and framed */
+.archive-plate {
+  background: linear-gradient(145deg, #0a0a0a, #121212);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
