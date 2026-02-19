@@ -6,35 +6,36 @@ export default function HomeHero() {
   const sectionRef = useRef<HTMLElement>(null);
 
 useEffect(() => {
-    const audio = audioRef.current;
-    
-    if (audio) {
-      audio.volume = 0.2; // Sets volume to 30%
-    }
+  const audio = audioRef.current;
+  
+  if (audio) {
+    audio.volume = 0.3; // Keeps it at a subtle 30%
+  }
 
-    const startAudio = () => {
-      audio?.play().catch(() => {});
+  const startAudio = () => {
+    audio?.play().catch(() => {});
+    // We keep the listener active until the first successful play
+    if (audio && !audio.paused) {
       window.removeEventListener('click', startAudio);
-      window.removeEventListener('touchstart', startAudio);
-    };
+    }
+  };
+
   window.addEventListener('click', startAudio);
 
   const observer = new IntersectionObserver(
     ([entry]) => {
-      // LOGIC CHECK: 
-      // If isIntersecting is true, we are on the HomeHero. 
-      // If false, we have scrolled away.
       if (entry.isIntersecting) {
         audio?.play().catch(() => {});
       } else {
+        // Only pause if we have scrolled significantly away
         audio?.pause();
-        // Reset audio to start if you want it to restart next time
-        if (audio) audio.currentTime = 0; 
       }
     },
     { 
-      threshold: 0, // Trigger immediately when even 1 pixel leaves the screen
-      rootMargin: "-50px 0px" // Adds a buffer so it stops slightly before it's fully gone
+      // This 'threshold' change is the key
+      threshold: 0.1, 
+      // rootMargin makes the 'visible area' taller so audio doesn't cut out early
+      rootMargin: "200px 0px 200px 0px" 
     }
   );
 
@@ -47,26 +48,27 @@ useEffect(() => {
     window.removeEventListener('click', startAudio);
   };
 }, []);
-  return (
+return (
     <section 
       ref={sectionRef} 
-      className="h-screen w-full flex flex-col justify-center items-center text-center snap-start px-6 bg-black relative"
+      className="h-screen w-full flex flex-col justify-center items-center text-center snap-start px-4 md:px-10 bg-black relative"
     >
-      {/* Ensure this path matches your file in public/audio/ */}
+      {/* 1. THE MISSING AUDIO TAG */}
       <audio ref={audioRef} src="/audio.mp3" loop />
 
+      {/* 2. BACKGROUND GIF */}
       <img 
         src="/home.gif" 
-        alt="Background" 
-        className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-lighten pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover opacity-60 md:opacity-70 mix-blend-lighten pointer-events-none"
       />
       
-      <div className="z-10">
-        <h1 className="text-6xl md:text-9xl font-bold text-white uppercase italic">
+      {/* 3. HERO CONTENT */}
+      <div className="z-10 w-full max-w-4xl">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-white uppercase italic leading-tight">
           Unfolding <br/> 
-          <span className="text-purple-600 drop-shadow-[0_0_15px_rgba(124,58,237,0.5)]">Omitted Truth</span>
+          <span className="text-purple-600 drop-shadow-[0_0_15px_rgba(124,58,237,0.4)]">Omitted Truth</span>
         </h1>
-        <p className="text-stone-400 mt-4 max-w-xl mx-auto">
+        <p className="text-stone-400 mt-6 text-sm md:text-lg max-w-xs md:max-w-xl mx-auto leading-relaxed">
           A study of the historical patterns our systems ignored.
         </p>
       </div>

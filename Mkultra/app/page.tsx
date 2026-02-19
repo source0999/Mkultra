@@ -1,11 +1,12 @@
 'use client';
+
+// THESE IMPORTS ARE ESSENTIAL - DO NOT REMOVE
 import Navbar from './components/Navbar';
 import HomeHero from './components/HomeHero';
 import TimelineHeader from './components/TimelineHeader';
 import TimelineSection from './TimelineSection';
 
 export default function Home() {
-  // Updated content to match your project theme
   const mkUltraHistory = [
     { 
       id: "r1", 
@@ -22,25 +23,25 @@ export default function Home() {
   ];
 
   return (
-    <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-black">
+    <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-black overflow-x-hidden">
       <Navbar />
       
-      {/* REMOVED: <BackgroundAudio /> 
-          Why? We want the audio inside HomeHero so it stops when we scroll away.
-      */}
-      
-      <div id="home">
+      <div id="home" className="snap-start w-full h-screen">
         <HomeHero />
       </div>
 
-      <div id="ritual">
+      <div id="ritual" className="w-full">
+        {/* Updated to pass props correctly */}
         <TimelineHeader 
           title="Omitted History" 
           subtitle="Patterns of systemic psychological manipulation." 
           pattern="Classified Exchange" 
         />
+        
         {mkUltraHistory.map((item) => (
-          <TimelineSection key={item.id} item={item} />
+          <div key={item.id} className="snap-start h-screen w-full">
+            <TimelineSection item={item} />
+          </div>
         ))}
       </div>
     </main>
