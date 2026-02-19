@@ -1,34 +1,46 @@
 'use client';
 import Navbar from './components/Navbar';
-import BackgroundAudio from './components/BackgroundAudio';
 import HomeHero from './components/HomeHero';
 import TimelineHeader from './components/TimelineHeader';
 import TimelineSection from './TimelineSection';
 
 export default function Home() {
-  // 1. Defining this stops the red lines under .map
-  const ritualHistory = [
-    { id: "r1", era: "3500 BCE", title: "The Cradle", desc: "First sacrifice." }
+  // Updated content to match your project theme
+  const mkUltraHistory = [
+    { 
+      id: "r1", 
+      era: "1953", 
+      title: "Project MKUltra", 
+      desc: "The CIA's clandestine mind control research program, officially sanctioned in 1953." 
+    },
+    { 
+      id: "r2", 
+      era: "1973", 
+      title: "Records Destroyed", 
+      desc: "CIA Director Richard Helms orders the destruction of all MKUltra files, leaving only fragmented truths." 
+    }
   ];
 
   return (
     <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-black">
       <Navbar />
-      <BackgroundAudio />
+      
+      {/* REMOVED: <BackgroundAudio /> 
+          Why? We want the audio inside HomeHero so it stops when we scroll away.
+      */}
       
       <div id="home">
         <HomeHero />
       </div>
 
       <div id="ritual">
-        {/* 2. No more red dots because we removed '...' */}
         <TimelineHeader 
-          title="Ritual" 
-          subtitle="Patterns of biological appeasement." 
-          pattern="Ancient Exchange" 
+          title="Omitted History" 
+          subtitle="Patterns of systemic psychological manipulation." 
+          pattern="Classified Exchange" 
         />
-        {ritualHistory.map((fact) => (
-          <TimelineSection key={fact.id} item={fact} />
+        {mkUltraHistory.map((item) => (
+          <TimelineSection key={item.id} item={item} />
         ))}
       </div>
     </main>
