@@ -7,14 +7,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      {/* Ensure the background of the body matches the navbar exactly */}
-      <body className="bg-black text-white antialiased">
+    <html lang="en" className="m-0 p-0 overflow-x-hidden"> 
+      <body className="bg-black text-white antialiased m-0 p-0 overflow-x-hidden">
+        {/* This is the ONLY place the Navbar should exist */}
         <Navbar />
-        {/* We use pt-20 to push the content down exactly enough to clear the navbar */}
-        <main className="pt-20">
+        
+        {/* We use a simple div here to avoid layout shifts */}
+        <div className="relative">
           {children}
-        </main>
+        </div>
       </body>
     </html>
   );
