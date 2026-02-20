@@ -1,21 +1,12 @@
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar"; // Check if 'components' is capitalized in your folder!
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="m-0 p-0 overflow-x-hidden"> 
-      <body className="bg-black text-white antialiased m-0 p-0 overflow-x-hidden">
-        {/* This is the ONLY place the Navbar should exist */}
+    <html lang="en">
+      <body className="bg-black text-white antialiased">
         <Navbar />
-        
-        {/* We use a simple div here to avoid layout shifts */}
-        <div className="relative">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );
