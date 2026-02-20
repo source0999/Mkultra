@@ -31,7 +31,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link href="/theories" className="text-[9px] font-black uppercase tracking-[0.2em] text-red-600 border border-red-600/30 px-5 py-2 rounded-full hover:bg-red-600 hover:text-white transition-all">
+        <Link href="/archive" className="text-[9px] font-black uppercase tracking-[0.2em] text-red-600 border border-red-600/30 px-5 py-2 rounded-full hover:bg-red-600 hover:text-white transition-all">
           [ ARCHIVES ]
         </Link>
       </nav>
