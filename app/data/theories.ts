@@ -4,57 +4,63 @@ export interface Theory {
   desc: string;
   image: string;
   link: string;
+  slug: string;
   era: string;
 }
 
 export const theories: Theory[] = [
   {
-    id: "theory-1",
-    title: "History of the cannibals",
-    desc: "Uncovering the origins of ritualatic sacrifces.",
+    id: "h-01",
+    title: "MOLOCH & SACRIFICE",
+    desc: "Tracking the continuity of blood ritual from Canaan to the modern day.",
     image: "/moloch.jpg",
-    link: "/theories/silent-frequency",
-    era: "DECRYPTED // 001"
-  },
-   {
-    id: "theory-2",
-    title: "History of the cannibals",
-    desc: "Uncovering the origins of ritualatic sacrifces.",
-    image: "/moloch.jpg",
-    link: "/theories/silent-frequency",
-    era: "DECRYPTED // 001"
-  },
-     {
-    id: "theory-3",
-    title: "History of the cannibals",
-    desc: "Uncovering the origins of ritualatic sacrifces.",
-    image: "/moloch.jpg",
-    link: "/theories/silent-frequency",
-    era: "DECRYPTED // 001"
-  },
-     {
-    id: "theory-4",
-    title: "History of the cannibals",
-    desc: "Uncovering the origins of ritualatic sacrifces.",
-    image: "/moloch.jpg",
-    link: "/theories/silent-frequency",
-    era: "DECRYPTED // 001"
-  },
-     {
-    id: "theory-5",
-    title: "History of the cannibals",
-    desc: "Uncovering the origins of ritualatic sacrifces.",
-    image: "/moloch.jpg",
-    link: "/theories/silent-frequency",
-    era: "DECRYPTED // 001"
+    link: "/theories/ritual-history",
+    slug: "ritual-history",
+    era: "ERA // 2500 BC - 2026"
   },
   {
-    id: "theory-6",
-    title: "Isreeal plan to take over the world",
-    desc: "How the world has been pupperted since the beginning.",
-    image: "/canaanites.jpg",
-    link: "/theories/omitted-architecture",
-    era: "DECRYPTED // 002"
+    id: "h-02",
+    title: "SECRET SOCIETIES",
+    desc: "From the Knights Templar to the P2 Lodge: How shadow groups guide policy.",
+    image: "/societies.jpg",
+    link: "/theories/secret-societies",
+    slug: "secret-societies",
+    era: "ERA // 1119 - PRESENT"
   },
-  // Add more items here to test the "View All" logic
+  {
+    id: "h-03",
+    title: "ROTHSCHILD RISE",
+    desc: "The 18th-century origin of the world's most powerful banking dynasty.",
+    image: "/rothschild-origin.jpg",
+    link: "/theories/rothschild-rise",
+    slug: "rothschild-rise",
+    era: "ERA // 1744 - 1815"
+  },
+  {
+    id: "h-04",
+    title: "ISRAELI HEGEMONY",
+    desc: "The secret intelligence and financial maneuvers behind the 1948 statehood.",
+    image: "/israel-control.jpg",
+    link: "/theories/israel-control",
+    slug: "israel-control",
+    era: "ERA // 1917 - 1948"
+  },
+  {
+    id: "h-05",
+    title: "PALANTIR SURVEILLANCE",
+    desc: "The rise of algorithmic control and the end of digital privacy.",
+    image: "/palantir.jpg",
+    link: "/theories/palantir-rise",
+    slug: "palantir-rise",
+    era: "ERA // 2003 - 2026"
+  },
+  {
+    id: "h-06",
+    title: "GNOSTIC FALSE REALITY",
+    desc: "Escaping the Demiurge: The ancient path to breaking the material matrix.",
+    image: "/gnostic.jpg",
+    link: "/theories/gnostic-reality",
+    slug: "gnostic-reality",
+    era: "ERA // 2ND CENTURY - 2026"
+  }
 ];
