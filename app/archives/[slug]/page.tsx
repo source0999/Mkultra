@@ -23,10 +23,9 @@ export default function ArchivePage({ params }: { params: Promise<{ slug: string
           {/* BACKGROUND LAYER */}
           <div className="absolute inset-0 z-0">
             <img 
-              src={section.type === 'video-focus' ? '/kabbalah-main.jpg' : section.mediaUrl} 
+              src="/kabbalah-main.jpg" 
               className="w-full h-full object-cover opacity-25 grayscale brightness-[0.5] transition-opacity duration-1000"
               alt=""
-              onError={(e) => { (e.target as HTMLImageElement).src = "/kabbalah-main.jpg" }}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/80 via-transparent to-[#080808]/80" />
           </div>
@@ -44,14 +43,18 @@ export default function ArchivePage({ params }: { params: Promise<{ slug: string
 
                 {section.type === 'video-focus' ? (
                   <div className="aspect-video w-full bg-black">
-                    <iframe src={section.mediaUrl} className="w-full h-full" allowFullScreen />
+                    <iframe 
+                      src={section.mediaUrl} 
+                      className="w-full h-full border-0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      allowFullScreen 
+                    />
                   </div>
                 ) : (
                   <img 
                     src={section.mediaUrl} 
                     className="w-full h-auto object-cover max-h-[50vh]" 
                     alt={section.title}
-                    onError={(e) => { (e.target as HTMLImageElement).src = "/kabbalah-main.jpg" }} 
                   />
                 )}
               </div>
@@ -60,14 +63,13 @@ export default function ArchivePage({ params }: { params: Promise<{ slug: string
             {/* CONTENT BLOCK */}
             <div className="lg:col-span-7 space-y-8">
               <div className="space-y-2">
-                <h2 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-white/90">
+                <h2 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-white/90 uppercase">
                   {section.title}
                 </h2>
                 <div className="w-12 h-[2px] bg-purple-600" />
               </div>
 
               <div className="relative">
-                 {/* Body Text: Big and Clear */}
                  <div className="bg-zinc-950/95 backdrop-blur-md p-8 md:p-12 border border-white/5 rounded-sm">
                     <p className="text-zinc-100 font-sans font-normal text-lg md:text-2xl leading-[1.6] antialiased">
                       {section.content}
@@ -77,10 +79,9 @@ export default function ArchivePage({ params }: { params: Promise<{ slug: string
               
               {section.references && (
                 <div className="pt-4">
-                  {/* RE-ESTABLISHED VISIBLE BUTTON */}
                   <button 
                     onClick={() => setShowRefs(showRefs === section.id ? null : section.id)} 
-                    className="px-8 py-3 border border-purple-500/50 bg-purple-500/10 text-purple-200 font-mono text-xs tracking-widest uppercase hover:bg-purple-500/30 hover:text-white transition-all duration-300 rounded-sm shadow-[0_0_15px_rgba(125,60,255,0.1)]"
+                    className="px-8 py-3 border border-purple-500/50 bg-purple-500/10 text-purple-200 font-mono text-xs tracking-widest uppercase hover:bg-purple-500/30 hover:text-white transition-all duration-300 rounded-sm"
                   >
                     {showRefs === section.id ? '[ TERMINATE_LINK ]' : '[ ACCESS_REFERENCES ]'}
                   </button>
