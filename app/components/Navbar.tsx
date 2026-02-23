@@ -27,7 +27,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link href="/archive" className="text-[9px] uppercase tracking-[0.2em] text-white border border-[var(--purple-accent)] bg-[var(--purple-accent)]/80 px-5 py-2 rounded-full hover:scale-105 transition-all">
+        <Link href="/archives" className="text-[9px] uppercase tracking-[0.2em] text-white border border-[var(--purple-accent)] bg-[var(--purple-accent)]/80 px-5 py-2 rounded-full hover:scale-105 transition-all">
           [ ARCHIVES ]
         </Link>
       </nav>
