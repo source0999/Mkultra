@@ -1,0 +1,2 @@
+:HL["/Mkultra/_next/static/chunks/9b0742da8f173a67.css","style"]
+0:{"buildId":"XlgfI97qzhXFMq7h1wRQS","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"control","paramType":null,"paramKey":"control","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
