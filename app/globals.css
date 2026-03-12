@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #fafafa;
+  --purple-accent: #7c3aed;
+  --purple-glow: #a78bfa;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Bruno Ace', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- THE FIXES --- */
+
+/* 1. Fix the Sidebar/Understones (High Specificity) */
+.glass-crystal {
+  background: rgba(10, 5, 20, 0.8) !important;
+  backdrop-filter: blur(20px);
+  border-left: 4px solid var(--purple-accent) !important;
+}
+
+/* 2. Fix the Image Borders */
+.archive-border {
+  border: 2px solid var(--purple-accent) !important;
+}
+
+/* 3. Fix the Navbar & Buttons (No more white) */
+.btn-archives, .btn-cyber {
+  background-color: var(--purple-accent) !important;
+  color: white !important;
+  border: 1px solid var(--purple-glow) !important;
+}
+
+.btn-archives:hover {
+  background-color: var(--purple-glow) !important;
+  color: black !important;
+}
+
+/* 4. Typewriter Animation (Orbitron Title) */
+.typewriter-reveal {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2.5s steps(40, end) forwards;
+  font-family: 'Orbitron', sans-serif;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* 5. Custom Scrollbar Junk */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 6. Background GIF Brightness */
+.bg-gif-overlay {
+  filter: grayscale(1) brightness(0.6) contrast(1.1);
+}
