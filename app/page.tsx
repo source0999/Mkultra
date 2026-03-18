@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { archives } from './data/archives';
+import { keys } from './data/keys';
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -9,7 +9,7 @@ export default function Home() {
   const [isInitialized, setIsInitialized] = useState(false);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const fullText = "PANDORAS_BOX";
+  const fullText = "Gnosis";
 
   // Intersection Observer to handle audio on scroll
   useEffect(() => {
@@ -54,7 +54,7 @@ export default function Home() {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, isInitialized]);
 
-  const startArchive = () => {
+  const startKey = () => {
     if (audioRef.current) {
       audioRef.current.play().catch(() => {});
       setIsInitialized(true);
@@ -68,7 +68,7 @@ export default function Home() {
       {!isInitialized && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black">
           <button 
-            onClick={startArchive} 
+            onClick={startKey} 
             className="border border-[var(--purple-accent)] bg-[var(--purple-accent)]/20 px-12 py-5 text-[10px] tracking-[1em] text-white hover:bg-[var(--purple-accent)] transition-all uppercase"
           >
             [ INITIALIZE ]
@@ -95,21 +95,21 @@ export default function Home() {
       </section>
 
       {/* List Item Sections */}
-      {archives.map((archive) => (
-        <section key={archive.id} className="snap-start h-screen w-full relative flex flex-col items-center justify-center p-10">
+      {keys.map((key) => (
+        <section key={key.id} className="snap-start h-screen w-full relative flex flex-col items-center justify-center p-10">
           <div className="absolute inset-0 opacity-20">
-            <img src={archive.image} className="w-full h-full object-cover grayscale" alt="" />
+            <img src={key.image} className="w-full h-full object-cover grayscale" alt="" />
           </div>
           <div className="relative z-10 text-center max-w-2xl">
-            <span className="text-[var(--purple-accent)] text-[10px] tracking-[0.5em] block mb-4 uppercase">{archive.era}</span>
-            <h2 className="text-4xl md:text-5xl uppercase mb-6 leading-tight text-white tracking-tighter">{archive.title}</h2>
-            <p className="text-zinc-400 text-sm mb-12 tracking-wide leading-relaxed">{archive.desc}</p>
+            <span className="text-[var(--purple-accent)] text-[10px] tracking-[0.5em] block mb-4 uppercase">{key.era}</span>
+            <h2 className="text-4xl md:text-5xl uppercase mb-6 leading-tight text-white tracking-tighter">{key.title}</h2>
+            <p className="text-zinc-400 text-sm mb-12 tracking-wide leading-relaxed">{key.desc}</p>
             
             <Link 
-              href={`/archives/${archive.slug}`} 
+              href={`/keys/${key.slug}`} 
               className="border-2 border-[var(--purple-accent)] bg-[var(--purple-accent)]/80 px-10 py-4 text-[11px] tracking-[0.4em] text-white hover:bg-[var(--purple-accent)] transition-all inline-block shadow-[0_0_15px_rgba(124,58,237,0.3)]"
             >
-              [ ENTER ARCHIVE ]
+              [ ENTER KEY ]
             </Link>
           </div>
         </section>

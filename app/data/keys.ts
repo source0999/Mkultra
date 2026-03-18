@@ -1,4 +1,4 @@
-export interface ArchiveEntry {
+export interface KeyEntry {
   id: string;
   title: string;
   desc: string;
@@ -8,7 +8,7 @@ export interface ArchiveEntry {
   accentColor: string; 
 }
 
-export const archives: ArchiveEntry[] = [
+export const keys: KeyEntry[] = [
   {
     id: "h-06",
     title: "THE KABBALAH",
@@ -56,4 +56,4 @@ export const archives: ArchiveEntry[] = [
   }
 ];
 
-export const theories = archives;
+export const theories = keys;

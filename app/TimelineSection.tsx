@@ -23,10 +23,10 @@ export default function TimelineSection({ item }: any) {
           </p>
         </div>
 
-        {/* This class 'archive-plate' is defined in your globals.css now */}
-        <div className="archive-plate aspect-[4/5] w-full group overflow-hidden shadow-2xl">
+        {/* This class 'key-plate' is defined in your globals.css now */}
+        <div className="key-plate aspect-[4/5] w-full group overflow-hidden shadow-2xl">
           <div className="text-center opacity-30 group-hover:opacity-100 transition-opacity">
-            <span className="text-purple-500 font-mono text-xs italic">[ ARCHIVE_{item.id} ]</span>
+            <span className="text-purple-500 font-mono text-xs italic">[ KEY_{item.id} ]</span>
           </div>
           
           {/* Corner accents */}

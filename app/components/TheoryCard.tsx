@@ -29,7 +29,7 @@ export default function TheoryCard({ title, desc, image, link }: TheoryProps) {
           href={link}
           className="w-fit px-6 py-2 border border-white text-[10px] uppercase tracking-[0.3em] text-white hover:bg-white hover:text-black transition-all"
         >
-          Access Archive
+          Access Key
         </a>
       </div>
 

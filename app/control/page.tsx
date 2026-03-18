@@ -1,5 +1,4 @@
 'use client';
-import Navbar from '../components/Navbar';
 import TimelineSection from '../TimelineSection';
 
 export default function ControlPage() {
@@ -10,7 +9,6 @@ export default function ControlPage() {
 
   return (
     <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-black">
-      <Navbar />
       {controlData.map((item) => (
         <TimelineSection key={item.id} item={item} />
       ))}

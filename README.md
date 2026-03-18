@@ -1,9 +1,9 @@
-# PANDORA'S BOX // ARCHIVAL DATA SYSTEM
+# Gnosis // ARCHIVAL DATA SYSTEM
 
 A high-fidelity digital repository designed for the analysis of esoteric history, religious archetypes, and shadow political structures. This platform serves as an objective lens into narratives often omitted from traditional academic curricula.
 
 ## 👁️ Project Overview
-The Archive is a specialized content management and visualization system presenting historical data points that challenge sanitized institutional narratives.
+The Key is a specialized content management and visualization system presenting historical data points that challenge sanitized institutional narratives.
 
 ### Core Pillars
 * **Theological Analysis**: Deconstructing traditions and their occult roots.
@@ -19,4 +19,4 @@ The Archive is a specialized content management and visualization system present
 This project focuses on the intersection of religion, politics, and power with an emphasis on primary sources and chronological accuracy.
 
 ---
-**[STATUS: SYSTEM ONLINE // ARCHIVES FULLY DECRYPTED]**
+**[STATUS: SYSTEM ONLINE // KEYS FULLY DECRYPTED]**

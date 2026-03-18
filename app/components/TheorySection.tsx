@@ -38,12 +38,12 @@ export default function TheorySection({ theory }: { theory: Theory }) {
           href={theory.link}
           className="group relative px-8 py-4 border border-white text-xs uppercase tracking-[0.5em] text-white overflow-hidden transition-all"
         >
-          <span className="relative z-10 transition-colors group-hover:text-black">Access Archive</span>
+          <span className="relative z-10 transition-colors group-hover:text-black">Access Key</span>
           <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
         </a>
       </div>
 
-      {/* Archive Ref Tag */}
+      {/* Key Ref Tag */}
       <div className="hidden md:block absolute right-20 bottom-20 border-l border-white/20 pl-4 py-2">
         <p className="text-[10px] font-mono text-stone-600 uppercase tracking-widest leading-loose">
           Ref: {theory.id}<br/>
