@@ -2,14 +2,47 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 
+const extractYouTubeId = (input: string): string | undefined => {
+  const trimmed = input?.trim();
+  if (!trimmed) return undefined;
+
+  // If it looks like a bare YouTube id, accept it.
+  if (!trimmed.includes('://') && !trimmed.includes('/') && trimmed.length >= 6) return trimmed;
+
+  try {
+    const url = new URL(trimmed);
+    const host = url.hostname.toLowerCase();
+
+    // https://youtu.be/<id>
+    if (host === 'youtu.be') {
+      return url.pathname.replace(/^\/+/, '').split('/')[0] || undefined;
+    }
+
+    // https://www.youtube.com/watch?v=<id>
+    const v = url.searchParams.get('v');
+    if (v) return v;
+
+    // https://www.youtube.com/embed/<id>
+    const parts = url.pathname.split('/').filter(Boolean);
+    const embedIndex = parts.findIndex((p) => p.toLowerCase() === 'embed');
+    if (embedIndex >= 0 && parts[embedIndex + 1]) return parts[embedIndex + 1];
+  } catch {
+    // Fall through to regex extraction.
+  }
+
+  // Regex fallback for common patterns
+  const match = trimmed.match(/(?:v=|youtu\.be\/|\/embed\/)([a-zA-Z0-9_-]{6,})/);
+  return match?.[1];
+};
+
 const Video = ({ src, sources = [] }: { src: string; sources?: string[] }) => {
-  const videoId = src.split('v=')[1]?.split('&')[0];
+  const videoId = extractYouTubeId(src);
   return (
     <div className="w-full h-full flex flex-col justify-center">
       <div className="aspect-video border border-[#7c3aed]/30 bg-black relative shadow-2xl">
         <iframe
           className="w-full h-full relative z-10"
-          src={`https://www.youtube.com/embed/${videoId}`}
+          src={videoId ? `https://www.youtube.com/embed/${videoId}` : undefined}
           allowFullScreen
         />
       </div>

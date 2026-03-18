@@ -26,7 +26,7 @@ export default function KeysIndexPage() {
               href={`/keys/${key.slug}`}
               className="border-2 border-[var(--purple-accent)] bg-[var(--purple-accent)]/80 px-10 py-4 text-[11px] tracking-[0.4em] text-white hover:bg-[var(--purple-accent)] transition-all inline-block shadow-[0_0_15px_rgba(124,58,237,0.3)]"
             >
-              [ ENTER KEY ]
+              [ UNLOCK ]
             </Link>
           </div>
         </section>
