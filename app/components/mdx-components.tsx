@@ -21,7 +21,7 @@ export const mdxComponents = {
       )}
     </section>
   ),
-  ArchiveImage: ({ src, caption }: any) => (
+  KeyImage: ({ src, caption }: any) => (
     <div className="my-8 group border border-white/10 p-1 bg-black">
       <div className="relative aspect-video w-full overflow-hidden">
         <img 

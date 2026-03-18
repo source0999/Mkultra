@@ -2,31 +2,31 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
-import ArchiveUI from './ArchiveUI';
+import KeyUI from './KeyUI';
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const filePath = path.join(process.cwd(), 'app', 'content', 'archives', `${slug}.mdx`);
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const filePath = path.join(process.cwd(), 'app', 'content', 'keys', `${id}.mdx`);
   
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data: frontmatter, content } = matter(fileContent);
   const mdxSource = await serialize(content);
 
-  return <ArchiveUI mdxSource={mdxSource} frontmatter={frontmatter} rawContent={content} />;
+  return <KeyUI mdxSource={mdxSource} frontmatter={frontmatter} rawContent={content} />;
 }
 
 
 //Old code
 // const components = { 
-//   ArchiveImage: MediaBlock, 
+//   KeyImage: MediaBlock, 
 //   Section,
 //   h1: (props: any) => <h1 {...props} className="section-header text-5xl md:text-6xl" />,
 //   h2: (props: any) => <h2 {...props} className="section-header text-3xl md:text-4xl" />
 // };
 
-// export default async function ArchivePage({ params }: { params: Promise<{ slug: string }> }) {
-//   const { slug } = await params;
-//   const filePath = path.join(process.cwd(), 'content/archives', `${slug}.mdx`);
+// export default async function KeyPage({ params }: { params: Promise<{ id: string }> }) {
+//   const { id } = await params;
+//   const filePath = path.join(process.cwd(), 'content/keys', `${id}.mdx`);
 //   const { data: frontmatter, content } = matter(fs.readFileSync(filePath, 'utf8'));
 
 //   return (

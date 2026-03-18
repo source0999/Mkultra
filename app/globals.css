@@ -25,18 +25,18 @@ body {
 }
 
 /* 2. Fix the Image Borders */
-.archive-border {
+.key-border {
   border: 2px solid var(--purple-accent) !important;
 }
 
 /* 3. Fix the Navbar & Buttons (No more white) */
-.btn-archives, .btn-cyber {
+.btn-keys, .btn-cyber {
   background-color: var(--purple-accent) !important;
   color: white !important;
   border: 1px solid var(--purple-glow) !important;
 }
 
-.btn-archives:hover {
+.btn-keys:hover {
   background-color: var(--purple-glow) !important;
   color: black !important;
 }
