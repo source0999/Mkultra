@@ -1,7 +1,14 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { keys } from './data/keys';
+
+type KeyCard = {
+  slug: string;
+  title: string;
+  desc: string;
+  era?: string;
+  image: string;
+};
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -10,6 +17,26 @@ export default function Home() {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const fullText = "Gnosis";
+  const [keys, setKeys] = useState<KeyCard[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/api/keys/list");
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!cancelled) setKeys(Array.isArray(data?.keys) ? data.keys : []);
+      } catch {
+        // If the API fails, just keep an empty list to avoid crashing the homepage.
+        if (!cancelled) setKeys([]);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Intersection Observer to handle audio on scroll
   useEffect(() => {
@@ -62,7 +89,7 @@ export default function Home() {
   };
 
   return (
-    <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-black no-scrollbar font-['Bruno_Ace']">
+    <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-black no-scrollbar font-['Bruno_Ace'] pt-24">
       <audio ref={audioRef} src="/bg.mp3" loop />
       
       {!isInitialized && (
@@ -96,12 +123,19 @@ export default function Home() {
 
       {/* List Item Sections */}
       {keys.map((key) => (
-        <section key={key.id} className="snap-start h-screen w-full relative flex flex-col items-center justify-center p-10">
+        <section
+          key={key.slug}
+          className="snap-start h-screen w-full relative flex flex-col items-center justify-center p-10"
+        >
           <div className="absolute inset-0 opacity-20">
             <img src={key.image} className="w-full h-full object-cover grayscale" alt="" />
           </div>
-          <div className="relative z-10 text-center max-w-2xl">
-            <span className="text-[var(--purple-accent)] text-[10px] tracking-[0.5em] block mb-4 uppercase">{key.era}</span>
+          <div className="relative z-10 text-center max-w-2xl mx-auto">
+            {key.era ? (
+              <span className="text-[var(--purple-accent)] text-[10px] tracking-[0.5em] block mb-4 uppercase">
+                {key.era}
+              </span>
+            ) : null}
             <h2 className="text-4xl md:text-5xl uppercase mb-6 leading-tight text-white tracking-tighter">{key.title}</h2>
             <p className="text-zinc-400 text-sm mb-12 tracking-wide leading-relaxed">{key.desc}</p>
             

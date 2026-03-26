@@ -2,17 +2,22 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
+import { notFound } from 'next/navigation';
 import KeyUI from './KeyUI';
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const filePath = path.join(process.cwd(), 'app', 'content', 'keys', `${id}.mdx`);
-  
+
+  if (!fs.existsSync(filePath)) {
+    notFound();
+  }
+
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data: frontmatter, content } = matter(fileContent);
   const mdxSource = await serialize(content);
 
-  return <KeyUI mdxSource={mdxSource} frontmatter={frontmatter} rawContent={content} />;
+  return <KeyUI keyId={id} mdxSource={mdxSource} frontmatter={frontmatter} rawContent={content} />;
 }
 
 

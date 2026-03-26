@@ -3,7 +3,7 @@ import { keys } from "../data/keys";
 
 export default function KeysIndexPage() {
   return (
-    <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-black no-scrollbar font-['Bruno_Ace']">
+    <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-black no-scrollbar font-['Bruno_Ace'] pt-24">
       {keys.map((key) => (
         <section
           key={key.id}
@@ -13,7 +13,7 @@ export default function KeysIndexPage() {
             <img src={key.image} className="w-full h-full object-cover grayscale" alt="" />
           </div>
 
-          <div className="relative z-10 text-center max-w-2xl">
+          <div className="relative z-10 text-center max-w-2xl mx-auto">
             <span className="text-[var(--purple-accent)] text-[10px] tracking-[0.5em] block mb-4 uppercase">
               {key.era}
             </span>

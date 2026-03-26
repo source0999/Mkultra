@@ -6,8 +6,8 @@ export default function Navbar() {
   const displayedKeys = keys.slice(0, 4);
 
   return (
-      <div className="fixed top-0 left-0 w-full z-[100] pointer-events-none flex justify-center pt-4 sm:pt-6 lg:pt-8 px-4 sm:px-6 font-['Bruno_Ace']">
-      <nav className="pointer-events-auto bg-black/90 border border-white/10 rounded-full w-fit max-w-[95vw] lg:max-w-[1100px] px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-4 sm:gap-6 lg:gap-8 shadow-2xl">
+      <div className="fixed top-0 left-0 w-full z-[999] pointer-events-none flex justify-center pt-4 sm:pt-6 lg:pt-8 px-4 sm:px-6 font-['Bruno_Ace']">
+      <nav className="pointer-events-auto bg-black border border-white/10 rounded-full w-fit max-w-[95vw] lg:max-w-[1100px] px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-4 sm:gap-6 lg:gap-8 shadow-2xl">
         <Link
           href="/"
           className="flex-shrink-0 whitespace-nowrap text-base sm:text-lg tracking-tighter text-white hover:text-[var(--purple-accent)] transition-all uppercase"
